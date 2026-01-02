@@ -1,0 +1,14 @@
+# Core cryptography
+cryptography>=42.0.0
+argon2-cffi>=23.1.0
+
+# GUI
+PySide6>=6.6.0
+
+# Utilities
+watchdog>=4.0.0
+
+# Development
+pytest>=8.0.0
+pytest-cov>=4.1.0
+black>=24.0.0
