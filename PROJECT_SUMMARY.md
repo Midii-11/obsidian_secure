@@ -29,9 +29,13 @@ A complete, production-ready secure Obsidian vault encryption tool with GUI inte
 - ✅ Unlock/lock workflow
 - ✅ File change detection (SHA-256 hashing)
 - ✅ Automatic re-encryption of modified files
+- ✅ New file detection and persistence
+- ✅ Deleted file detection and removal
+- ✅ Subdirectory support (nested folders)
+- ✅ Complete file lifecycle management
 - ✅ File watcher for real-time monitoring
 - ✅ Obsidian launcher integration
-- ✅ Workspace cleanup on lock
+- ✅ Workspace cleanup on lock with error handling
 
 #### 4. Security Features
 - ✅ Atomic file writes (no corruption)
@@ -57,10 +61,20 @@ A complete, production-ready secure Obsidian vault encryption tool with GUI inte
 - ✅ 27 unit tests (all passing)
 - ✅ Comprehensive README
 - ✅ Quick start guide
+- ✅ Important workflow guide
 - ✅ Contributing guide
 - ✅ CLI example
 - ✅ Changelog
 - ✅ License (MIT)
+
+#### 7. Bug Fixes (v0.1.1)
+- ✅ Fixed new files not persisting across lock/unlock cycles
+- ✅ Fixed subdirectory file handling (nested folders)
+- ✅ Fixed workspace deletion when files are locked
+- ✅ Fixed salt validation error on vault unlock
+- ✅ Fixed duplicate notes in GUI tree view
+- ✅ Fixed Obsidian executable path configuration
+- ✅ Enhanced error messages and user warnings
 
 ## 📊 Statistics
 
@@ -255,5 +269,5 @@ ObsidianSecure is a **complete, working, production-ready** secure vault encrypt
 
 **Built with**: Python 3.13.5, PySide6, cryptography, argon2-cffi, watchdog
 **License**: MIT
-**Version**: 0.1.0
+**Version**: 0.1.1
 **Date**: January 2, 2026

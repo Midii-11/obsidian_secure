@@ -35,7 +35,8 @@
    - Create and edit notes as usual
 
 5. **Lock when done**
-   - Close Obsidian
+   - **CRITICAL: Close Obsidian COMPLETELY first** (File → Exit)
+   - Verify Obsidian is not running (check Task Manager)
    - Click "Lock" in ObsidianSecure
    - Your notes are re-encrypted and the workspace is securely deleted
 
@@ -45,22 +46,26 @@
 2. Select your vault
 3. Unlock with password
 4. Launch Obsidian
-5. Work on your notes
-6. Lock the vault when finished
+5. Work on your notes (create, edit, delete files and folders)
+6. **Close Obsidian completely**
+7. Lock the vault in ObsidianSecure
 
 ## Important Notes
 
 - **NEVER forget your password** - there's no recovery method!
+- **ALWAYS close Obsidian before locking** - or files won't be deleted!
 - **Always lock** before shutting down
 - **Keep backups** of your encrypted vault folder
 - The encrypted vault folder (e.g., `C:\MySecrets\vault`) is safe to backup/sync
 - The temporary workspace is automatically deleted on lock
+- You can create/edit/delete files and folders - all changes are saved when you lock
 
 ## Troubleshooting
 
 ### "Obsidian not found"
 - Install Obsidian from [obsidian.md](https://obsidian.md/)
-- Default location: `%LOCALAPPDATA%\Obsidian\Obsidian.exe`
+- Default location: `%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe`
+- If installed elsewhere, update path in `obsidian_secure/config.py`
 
 ### "Invalid password"
 - Double-check your password (case-sensitive!)
@@ -69,6 +74,11 @@
 ### Leftover workspace warning
 - This happens if the app crashed
 - Click "Yes" to clean up the leftover decrypted files
+
+### "Failed to delete files" error
+- **Cause**: Obsidian or another program has files open
+- **Solution**: Close Obsidian completely, then try locking again
+- Verify Obsidian is not in Task Manager or system tray
 
 ## Advanced Usage
 

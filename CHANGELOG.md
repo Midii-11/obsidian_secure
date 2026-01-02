@@ -37,6 +37,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Windows (primary target)
 - Python 3.9+ compatible
 
+## [0.1.1] - 2026-01-02
+
+### Fixed
+- **Critical**: Fixed new files not persisting across lock/unlock cycles
+  - Completely rewrote `lock()` method to process all workspace files (new, modified, and unchanged)
+  - Added comprehensive file lifecycle management (create, modify, delete)
+  - Files created in Obsidian now properly persist after locking
+- **Critical**: Fixed subdirectory file handling
+  - Updated `_add_new_file_to_vault()` to correctly navigate from root folder
+  - New directories and files within them now work correctly
+  - Fixed path resolution for nested folder structures
+- **Critical**: Fixed workspace not being deleted when files are locked by other processes
+  - Updated `secure_delete_directory()` to raise descriptive errors instead of failing silently
+  - Added user warnings about closing Obsidian before locking
+  - Improved error messages with troubleshooting guidance
+- Fixed salt validation error on vault unlock
+  - Updated `VaultIndex.save()` signature to accept salt parameter
+  - Vault now unlocks correctly after being locked
+- Fixed duplicate notes appearing in GUI tree view
+  - Updated `VaultIndex.find_by_path()` to search from root folder's children
+  - Proper path resolution prevents duplicate entries
+- Fixed Obsidian executable path configuration
+  - Updated default path to `%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe`
+  - Configurable via `config.py`
+
+### Improved
+- Enhanced error messages for file locking issues
+- Added confirmation dialogs with security reminders
+- Better user guidance in lock/unlock workflow
+- Improved path normalization across all file operations
+- Updated test suite to match new path handling behavior (27 tests passing)
+
+### Documentation
+- Added IMPORTANT_WORKFLOW.md with detailed lock/unlock instructions
+- Updated README with corrected Obsidian path
+- Enhanced troubleshooting section
+
 ## [Unreleased]
 
 ### Planned Features

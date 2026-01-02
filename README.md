@@ -65,12 +65,18 @@ The vault will be created with encrypted storage.
 
 ### Locking the Vault
 
-1. Close Obsidian
+**⚠️ CRITICAL: Close Obsidian COMPLETELY before locking!**
+
+1. **Close Obsidian** (File → Exit or Alt+F4)
+   - Verify Obsidian is not in Task Manager
+   - Verify Obsidian is not in system tray
 2. Click **"Lock"** in ObsidianSecure
 3. All modified files will be re-encrypted
-4. The temporary workspace will be securely deleted
+4. New files will be added to the vault
+5. Deleted files will be removed from the vault
+6. The temporary workspace will be securely deleted
 
-**IMPORTANT**: Always lock the vault when finished to protect your data!
+**IMPORTANT**: If Obsidian is still running when you lock, files cannot be deleted and your notes will remain unencrypted on disk! Always verify Obsidian is fully closed before locking.
 
 ## Security Model
 
@@ -175,8 +181,24 @@ If the application crashes, you may see a warning about leftover workspaces on n
 ### Obsidian Not Found
 
 If "Launch Obsidian" fails:
-- Verify Obsidian is installed at: `%LOCALAPPDATA%\Obsidian\Obsidian.exe`
+- Verify Obsidian is installed at: `%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe`
+- If installed elsewhere, update the path in `obsidian_secure/config.py`
 - Or manually open the workspace folder shown in the log
+
+### Files Not Deleted After Lock
+
+If you see an error about files being locked:
+- **Close Obsidian completely** (File → Exit)
+- Verify no Obsidian process in Task Manager
+- Try locking again
+- The workspace must be deleted or your notes remain unencrypted!
+
+### New Files Not Appearing
+
+If files created in Obsidian don't appear after unlock:
+- Make sure you closed Obsidian before locking
+- Check for any error messages during lock
+- Verify the lock operation completed successfully
 
 ### Forgotten Password
 

@@ -305,10 +305,8 @@ class MainWindow(QMainWindow):
         reply = QMessageBox.question(
             self,
             "Lock Vault",
-            "⚠️ IMPORTANT: Close Obsidian FIRST before locking!\n\n"
             "Lock the vault and securely delete the workspace?\n\n"
-            "Any modified files will be encrypted and saved.\n\n"
-            "Have you closed Obsidian?",
+            "Any modified files will be encrypted and saved.",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
         )
 
@@ -354,10 +352,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(
                 self,
                 "Obsidian Launched",
-                "Obsidian has been launched with the decrypted workspace.\n\n"
-                "⚠️ IMPORTANT: Close Obsidian completely before clicking 'Lock'!\n\n"
-                "If Obsidian is still running when you lock, the files cannot be deleted "
-                "and your notes will remain unencrypted on disk.",
+                "Obsidian has been launched with the decrypted workspace.",
             )
         except FileNotFoundError as e:
             QMessageBox.warning(
@@ -410,8 +405,16 @@ class MainWindow(QMainWindow):
                     self._worker.wait()
                 event.accept()
             elif reply == QMessageBox.StandardButton.No:
+                # Clean up resources without locking
+                self._cleanup_resources()
                 event.accept()
             else:
                 event.ignore()
         else:
             event.accept()
+
+    def _cleanup_resources(self):
+        """Clean up resources (watcher, threads) without locking vault."""
+        if self.session_manager and self.session_manager.watcher:
+            self.session_manager.watcher.stop()
+            self.session_manager.watcher = None
