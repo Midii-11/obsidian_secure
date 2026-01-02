@@ -247,11 +247,21 @@ class SessionManager:
         parts = path_str.split("/")
         filename = parts[-1]
 
+        # Find the root folder (node with parent_id=None)
+        root_id = None
+        for node in self.index.nodes.values():
+            if node.parent_id is None:
+                root_id = node.node_id
+                break
+
+        if root_id is None:
+            raise RuntimeError("No root folder found in index")
+
         # Find or create parent folder in index
-        parent_id = "root"  # Default to root
+        parent_id = root_id  # Start from root folder
         if len(parts) > 1:
             # Navigate through folder structure
-            current_id = None
+            current_id = root_id
             for folder_name in parts[:-1]:
                 # Try to find existing folder
                 found_id = None
@@ -272,7 +282,7 @@ class SessionManager:
                         parent_id=current_id
                     )
 
-            parent_id = current_id if current_id else "root"
+            parent_id = current_id
 
         # Add file to index
         node_id = self.index.add_node(
