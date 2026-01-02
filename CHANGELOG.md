@@ -50,7 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixed path resolution for nested folder structures
 - **Critical**: Fixed workspace not being deleted when files are locked by other processes
   - Updated `secure_delete_directory()` to raise descriptive errors instead of failing silently
-  - Added user warnings about closing Obsidian before locking
   - Improved error messages with troubleshooting guidance
 - Fixed salt validation error on vault unlock
   - Updated `VaultIndex.save()` signature to accept salt parameter
@@ -61,18 +60,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Obsidian executable path configuration
   - Updated default path to `%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe`
   - Configurable via `config.py`
+- Fixed console not returning to prompt after closing application
+  - Added proper cleanup of FileWatcher thread on window close
+  - Application now exits cleanly in all scenarios
 
 ### Improved
 - Enhanced error messages for file locking issues
-- Added confirmation dialogs with security reminders
+- Simplified user dialogs (removed excessive warnings)
+- Reactive error handling instead of preventive warnings
 - Better user guidance in lock/unlock workflow
 - Improved path normalization across all file operations
 - Updated test suite to match new path handling behavior (27 tests passing)
 
 ### Documentation
-- Added IMPORTANT_WORKFLOW.md with detailed lock/unlock instructions
+- Updated workflow documentation to match current app behavior
+- Clarified that closing Obsidian is recommended, not mandatory
 - Updated README with corrected Obsidian path
-- Enhanced troubleshooting section
+- Enhanced troubleshooting section with accurate guidance
 
 ## [Unreleased]
 

@@ -65,18 +65,13 @@ The vault will be created with encrypted storage.
 
 ### Locking the Vault
 
-**⚠️ CRITICAL: Close Obsidian COMPLETELY before locking!**
+1. Click **"Lock"** in ObsidianSecure
+2. All modified files will be re-encrypted
+3. New files will be added to the vault
+4. Deleted files will be removed from the vault
+5. The temporary workspace will be securely deleted
 
-1. **Close Obsidian** (File → Exit or Alt+F4)
-   - Verify Obsidian is not in Task Manager
-   - Verify Obsidian is not in system tray
-2. Click **"Lock"** in ObsidianSecure
-3. All modified files will be re-encrypted
-4. New files will be added to the vault
-5. Deleted files will be removed from the vault
-6. The temporary workspace will be securely deleted
-
-**IMPORTANT**: If Obsidian is still running when you lock, files cannot be deleted and your notes will remain unencrypted on disk! Always verify Obsidian is fully closed before locking.
+**Recommended**: Close Obsidian before locking to ensure clean shutdown and prevent file locking errors. If locking fails, the app will show an error - just close Obsidian and lock again.
 
 ## Security Model
 
@@ -188,17 +183,19 @@ If "Launch Obsidian" fails:
 ### Files Not Deleted After Lock
 
 If you see an error about files being locked:
-- **Close Obsidian completely** (File → Exit)
-- Verify no Obsidian process in Task Manager
-- Try locking again
-- The workspace must be deleted or your notes remain unencrypted!
+1. Close Obsidian completely (File → Exit)
+2. Verify no Obsidian process in Task Manager
+3. Click Lock again in ObsidianSecure
+4. The workspace will be deleted this time
+
+The app will show clear error messages if locking fails.
 
 ### New Files Not Appearing
 
 If files created in Obsidian don't appear after unlock:
-- Make sure you closed Obsidian before locking
-- Check for any error messages during lock
-- Verify the lock operation completed successfully
+- Check if lock completed successfully (no errors shown)
+- Verify the vault was properly locked (workspace deleted)
+- If there were errors during lock, the files may not have been saved
 
 ### Forgotten Password
 

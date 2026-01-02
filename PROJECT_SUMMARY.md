@@ -74,7 +74,9 @@ A complete, production-ready secure Obsidian vault encryption tool with GUI inte
 - ✅ Fixed salt validation error on vault unlock
 - ✅ Fixed duplicate notes in GUI tree view
 - ✅ Fixed Obsidian executable path configuration
-- ✅ Enhanced error messages and user warnings
+- ✅ Fixed console not returning to prompt after closing app
+- ✅ Enhanced error messages and reactive error handling
+- ✅ Simplified user interface (removed excessive warnings)
 
 ## 📊 Statistics
 

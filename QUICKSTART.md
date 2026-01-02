@@ -35,10 +35,9 @@
    - Create and edit notes as usual
 
 5. **Lock when done**
-   - **CRITICAL: Close Obsidian COMPLETELY first** (File → Exit)
-   - Verify Obsidian is not running (check Task Manager)
    - Click "Lock" in ObsidianSecure
    - Your notes are re-encrypted and the workspace is securely deleted
+   - (Recommended: Close Obsidian first for clean shutdown)
 
 ## Daily Workflow
 
@@ -47,18 +46,18 @@
 3. Unlock with password
 4. Launch Obsidian
 5. Work on your notes (create, edit, delete files and folders)
-6. **Close Obsidian completely**
-7. Lock the vault in ObsidianSecure
+6. Lock the vault in ObsidianSecure
 
 ## Important Notes
 
 - **NEVER forget your password** - there's no recovery method!
-- **ALWAYS close Obsidian before locking** - or files won't be deleted!
+- **Close Obsidian before locking** (recommended) - prevents file locking errors
 - **Always lock** before shutting down
 - **Keep backups** of your encrypted vault folder
 - The encrypted vault folder (e.g., `C:\MySecrets\vault`) is safe to backup/sync
 - The temporary workspace is automatically deleted on lock
 - You can create/edit/delete files and folders - all changes are saved when you lock
+- If locking fails with an error, close Obsidian and try again
 
 ## Troubleshooting
 
