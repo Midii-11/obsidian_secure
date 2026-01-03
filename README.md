@@ -1,6 +1,12 @@
 # ObsidianSecure - Secure Obsidian Vault Encryption Tool
 
+<p align="center">
+    <img src="assets/images/Obsidian%20Secure%20Logo.png" alt="ObsidianSecure Logo" width="220" />
+</p>
+
 ObsidianSecure provides maximum security for storing credentials and confidential notes in Obsidian through complete vault encryption.
+
+![ObsidianSecure Screenshot](assets/images/Obsidian%20Secure.png)
 
 ## Community review & audit
 
