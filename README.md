@@ -2,6 +2,14 @@
 
 ObsidianSecure provides maximum security for storing credentials and confidential notes in Obsidian through complete vault encryption.
 
+## Community review & audit
+
+We welcome security researchers, auditors, and community members to review and improve ObsidianSecure. Please open issues or pull requests with constructive criticism, suggested fixes, or audit reports. For sensitive security disclosures, open a private issue labeled "security" or contact the maintainers directly — do not post secrets in public issues. 
+
+⚠️⚠️⚠️
+This software uses industry-standard cryptography but has not undergone a
+professional security audit. Use at your own risk.
+
 ## Features
 
 - **Complete Encryption**: Encrypts both file contents and filenames/folder names
