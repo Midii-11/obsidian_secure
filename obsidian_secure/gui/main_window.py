@@ -18,7 +18,7 @@ from PySide6.QtWidgets import (
     QSplitter,
 )
 from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QIcon
 
 from .dialogs import PasswordDialog, CreateVaultDialog
 from .vault_tree import VaultTreeWidget
@@ -55,8 +55,13 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle(f"{APP_NAME} v{APP_VERSION}")
+        self.setWindowTitle(f"Obsidian Secure [v{APP_VERSION}]")
         self.resize(800, 600)
+
+        # Set window icon
+        icon_path = Path(__file__).parent.parent.parent / "assets" / "images" / "Obsidian Secure Logo.png"
+        if icon_path.exists():
+            self.setWindowIcon(QIcon(str(icon_path)))
 
         self.vault_path: Path | None = None
         self.session_manager: SessionManager | None = None
